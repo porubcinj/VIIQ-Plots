@@ -40,7 +40,7 @@ def main(config: Config = Config()) -> None:
         vector1 = np.load(filename1)["arr_0"]
         vector2 = np.load(filename2)["arr_0"]
         score = irisRec.matchVectors(vector1, vector2)
-        df.at[index, "ArcIris_score"] = score
+        df.at[index, "ArcIris_score"] = round(score, 4)
 
     df.to_csv("scores.csv", index=False)
 
