@@ -1,0 +1,10 @@
+argparse
+python-dotenv
+pillow
+opencv-python
+numpy
+PyYAML
+torch
+torchvision
+scikit-learn
+pandas
