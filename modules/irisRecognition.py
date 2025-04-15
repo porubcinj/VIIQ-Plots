@@ -1,6 +1,6 @@
 import os
 import torch
-from backbones.iresnet import iresnet50, iresnet100
+from backbones.iresnet import iresnet50, iresnet100, iresnet200
 from backbones.convnext import ArcFaceConvNeXt
 
 class irisRecognition(object):
@@ -13,6 +13,8 @@ class irisRecognition(object):
                 self.nn_model = iresnet50(**kwargs)
             elif model.startswith("ResNet100"):
                 self.nn_model = iresnet100(**kwargs)
+            elif model.startswith("ResNet200"):
+                self.nn_model = iresnet200(**kwargs)
             elif model.startswith("ConvNeXt"):
                 convnext_model_name = '_'.join(model.split('_')[:2])
                 self.nn_model = ArcFaceConvNeXt(convnext_model_name, **kwargs)
