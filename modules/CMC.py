@@ -35,7 +35,9 @@ class CMC:
             if name == list(self.cmc_dict.keys())[-1]:
                 globals()[name] = mlines.Line2D(r, temp_cmc, color=self.color[0], marker=self.marker[0], label='{:.1f}% {}'.format(self.cmc_dict[name][0]*100, name))
             else:
-                globals()[name] = mlines.Line2D(r, temp_cmc, color=self.color[i+1], marker=self.marker[i+1], label='{:.1f}% {}'.format(self.cmc_dict[name][0]*100, name))
+                color = self.color[(i + 1) % len(self.color)]
+                marker = self.marker[(i + 1) % len(self.marker)]
+                globals()[name] = mlines.Line2D(r, temp_cmc, color=color, marker=marker, label='{:.1f}% {}'.format(self.cmc_dict[name][0]*100, name))
                 i = i+1
             ax.add_line(globals()[name])
             method_name.append(globals()[name])
@@ -70,7 +72,9 @@ class CMC:
             if name == list(self.cmc_dict.keys())[-1]:
                 globals()[name] = mlines.Line2D(r, temp_cmc, color=self.color[0], marker=self.marker[0], label='{:.1f}% {}'.format(self.cmc_dict[name][0]*100, name))
             else:
-                globals()[name] = mlines.Line2D(r, temp_cmc, color=self.color[i+1], marker=self.marker[i+1], label='{:.1f}% {}'.format(self.cmc_dict[name][0]*100, name))
+                color = self.color[(i + 1) % len(self.color)]
+                marker = self.marker[(i + 1) % len(self.marker)]
+                globals()[name] = mlines.Line2D(r, temp_cmc, color=color, marker=marker, label='{:.1f}% {}'.format(self.cmc_dict[name][0]*100, name))
                 i = i+1
             ax.add_line(globals()[name])
             method_name.append(globals()[name])
